@@ -46,13 +46,18 @@ EDIT_BOOKING_TEXT = "Edit Booking"
 NEXT_BTN = "Next"
 
 # Selectors
+SL_EDIT = '.fa-edit'
+SL_DELETE = '.fa-times'
+SL_DELETE_CONFIRM = '.ui-pnotify-title'
 SL_CAR_RESERVE_DATE = 'input[id="Cars"]'
+SL_GRAND_TOTAL = 'td#grandtotal'
 SL_TOUR_RESERVE_DATE = ''
 SL_CALENDAR_NEXT = '.next'
 SL_VALID_DATE = 'div.datepicker-days tr:nth-child(1) td:nth-child(2)'
 SL_GRAND_TOTAL = 'td[id="grandtotal"]'
 SL_CHECKIN = 'input[name="checkin"]'
 SL_CHECKOUT = 'input[name="checkout"]'
+
 SL_SELECT_ITEM = "select[name='item']"
 SL_SELECT_ROOM_TYPE = "select[id='poprooms']"
 SL_SELECT_SERVICE = "select[name='service']"
@@ -97,7 +102,7 @@ When(/^I login using (valid|invalid) credentials$/) do |valid_credentials|
         fill_in 'Password', with: password
         click_button 'Login'
     else
-        puts "=> User was already in a logged in state."
+        puts "User was already in a logged in state."
     end
     expect(page).to have_button QUICK_BOOKING_BTN    
 end
@@ -123,16 +128,16 @@ When(/^I click the (edit|delete) button for the booking on row (.*?)$/) do |butt
     within(all_rows[row.to_f]) do
         case button
         when "edit"
-            click_css('.fa-edit')
+            click_css(SL_EDIT)
         when "delete"
-            click_css('.fa-times')
+            click_css(SL_DELETE)
         end
     end
 end
 
 When(/^I accept the confirmation alert$/) do
     page.accept_alert
-    find('.ui-pnotify-title')
+    find(SL_DELETE_CONFIRM)
 end
 
 When(/^I store the booking infomration for the booking on row (.*?)$/) do |row|
@@ -141,15 +146,15 @@ When(/^I store the booking infomration for the booking on row (.*?)$/) do |row|
 end
 
 Then(/^the booking management page should be displayed$/) do
-    expect(page).to have_text MGMT_TEXT 
+    expect(page).to have_text MGMT_TEXT
 end
 
 Then(/^the edit booking page should be displayed$/) do
-    expect(page).to have_text EDIT_BOOKING_TEXT 
+    expect(page).to have_text EDIT_BOOKING_TEXT
 end
 
 Then(/^the edit booking page should display the correct total price$/) do
-    displayed_total = find('td#grandtotal').text
+    displayed_total = find(SL_GRAND_TOTAL).text
     expect(displayed_total).to eq("$" + stored_booking.total)
 end
 

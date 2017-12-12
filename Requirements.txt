@@ -1,0 +1,33 @@
+Quick Booking:
+- Ensure that creating a booking with the Quick Booking feature is successful using Cars
+    - Create booking using available car types
+    - Create booking using a registered account
+    - Create booking using a guest account
+    - Create booking using a date in the future
+    - Create booking using the preset deposit
+    - Create booking using a deposit that is larger than the preset amount
+    - Create booking using extras added on
+    - Create booking without extras added on
+- Ensure that creating a booking with the Quick Booking feature is successful using Hotels
+    - Create booking using available hotels
+    - Create booking using a registered account
+    - Create booking using a guest account
+    - Create booking with a check in / out window of a day / week / month
+    - Create booking using available room types
+    - Create booking using available room quantities 
+    - Create booking using the preset deposit
+    - Create booking using a deposit that is larger than the preset amount
+- Ensure that creating a booking with the Quick Booking feature is successful using Tours
+    - Create booking using available tour types
+    - Create booking using a registered account
+    - Create booking using a guest account
+    - Create booking using the preset deposit
+    - Create booking using a deposit that is larger than the preset amount
+
+Booking Management:
+- Ensure that bookings can be successfully edited
+    - Edit a hotel booking and ensure that the changes propagate without issue
+    - Edit a tours booking and ensure that the changes propagate without issue
+    - Edit a car rental booking and ensure that the changes propagate without issue
+- Ensure that bookings can be succcessfully deleted
+    - Delete a booking and ensure that the booking is removed

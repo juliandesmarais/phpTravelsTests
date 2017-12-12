@@ -1,6 +1,7 @@
 # phpTravelsTests
 
 ### Site: http://www.phptravels.net/supplier
+(Demo site of http://phptravels.com/demo/)
 
 ### Approach for testing:
 * Create requirements matrix
